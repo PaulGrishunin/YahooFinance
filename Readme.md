@@ -24,3 +24,7 @@ returns
 "low":19.709999,"close":19.77,"adj_close":19.77,"volume":1668300},...
 {"company":"ZUO","date":"2019-05-23","open":22.1,"high":22.17,
 "low":20.32,"close":20.799999,"adj_close":20.799999,"volume":3787300}]
+
+
+deploy:
+https://yahoofinan.herokuapp.com/
