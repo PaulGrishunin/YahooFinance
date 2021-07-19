@@ -1,0 +1,1 @@
+web: gunicorn YahooFinance.wsgi --log-file -

@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-40-+alr#ra_40_8eh9pwm#wx*1!-qo@2u9#&-hut0-@aa-i2#8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -78,10 +80,10 @@ WSGI_APPLICATION = 'YahooFinance.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'yahoo_db',
-        'USER': 'root',
-        'PASSWORD': '555555',
-        'HOST': 'localhost',
+        'NAME': 'd5ieo6djo70950',
+        'USER': 'khqkxgvlqcjvpr',
+        'PASSWORD': 'f88d505c4109b938ab818fe528531aa32e961709f205c74f7ca50a35088c0812',
+        'HOST': 'ec2-54-155-87-214.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
 }
@@ -133,3 +135,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),           # Disable Browsable API, Only for PRODUCTION
 }
+
+db_from_env = dj_database_url.config()
+# DATABASE['default'].update(db_from_env)
+
+django_heroku.settings(locals())
